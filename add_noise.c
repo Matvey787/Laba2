@@ -1,4 +1,6 @@
 #include <stdlib.h>
+
+#include "add_noise.h"
 void add_noise(double *radioctivity,int N)
 {
 

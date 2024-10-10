@@ -8,30 +8,30 @@ double nonlinear_equation (double *radioactivity, double *time, int N, double pr
 {
     const double EPS = 0.e-12;
 
-    double interval1 = 0, interval2 = 0;
-    scanf("%lg %lg", &interval1, &interval2);
+    double interval1 = 0.2, interval2 = 8.2;
 
     double sr = 0;
 
     for (int i = 0; i < N; i++)
     {
-        while(interval2 - interval1 > precision)
+        while((interval2 - interval1) > precision)
         {
             sr = (interval1 + interval2) / 2;
 
             double ans = model(radioactivity, time, N, sr);
 
-            if (ans > EPS)
+            if (fabs(ans) > EPS)
             {
                 interval2 = sr;
             }
 
-            if (ans < -EPS)
+            else
             {
                 interval1 = sr;
             }
         }
     }
+    return sr;
 
 }
 

@@ -1,8 +1,12 @@
 #include <stdio.h>
+
 #include "precision_analysis.h"
 #include "linear_equation.h"
+#include "nonleniar_equation.h"
+#include "dev_exp.h"
+#include "dev_linear.h"
 
-double precision_analysis (double *radioactivity, double *time, int N)
+double precision_analysis (double *radioactivity, double *time, int N, double precision)
 {
     size_t i = 10;
     double decay_rate = linear_equation(radioactivity, time, i);
@@ -17,5 +21,5 @@ double precision_analysis (double *radioactivity, double *time, int N)
         Dev_exp = dev_exp(radioactivity, time, i, decay_time);
         Dev_linear = dev_linear(radioactivity, time, i, decay_rate);
     }
-    return i;
+    return time[i];
 }

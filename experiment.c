@@ -14,7 +14,6 @@ int experiment (double *radioactivity, double *time, double start_time, double e
     for(i = 1; is_equal(time[i - 1], end_time) != 1; i++, N++)
     {
         time[i] = time[i - 1] + step;
-        printf("t%d = %lf\n", i, time[i]);
         if (time[i] > end_time)
         {
             time[i] = end_time;
@@ -24,7 +23,6 @@ int experiment (double *radioactivity, double *time, double start_time, double e
     for(i = 0; i < N; i++)
     {
         radioactivity[i] = R * exp(-time[i]/betta);
-        printf("r%d = %lf\n", i, radioactivity[i]);
     }
     return N;
 }

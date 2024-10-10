@@ -3,7 +3,7 @@
 
 #include "dev_exp.h"
 
-double dev_exp(double *radioactivity, double *time, int M, double interval_left, double interval_right, double decay_time)
+double dev_exp(double *radioactivity, double *time, int M, double decay_time)
 {
     int i;
     double sum_residuals1 = 0;
